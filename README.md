@@ -1,7 +1,7 @@
 # 2021 CBSH 미니축제 투표 시스템 개발
 2021 CBSH Sunday Festival Vote System
 
-
+---
 
 ### index.html
 
@@ -29,4 +29,6 @@
 ```
 
 * 로그인 폼과 투표 페이지
+
+
 * Circle 개체로 배경 디자인
