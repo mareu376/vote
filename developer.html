@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="kr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
+    <style>
+        button {
+            float: left;
+            background: rgba(255, 100, 100, 0.8);
+            color: #fff;
+            border: 1px solid rgba(255, 100, 100, 0.8);
+            border-radius: 5px;
+            padding: 15px;
+            display: block;
+            width: 100%;
+            transition: 0.3s;
+            -webkit-transition: 0.3s;
+            -moz-transition: 0.3s;
+            font-family: 'Staatliches', cursive;
+            margin-left: 19%;
+            margin-top: 14%;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            font-size: 50pt;
+            animation: amimation1 10s ease-in-out -8s infinite both;
+            outline: none;
+        }
+
+        button:hover {
+            background: #fff;
+            color: rgba(255, 100, 100, 0.8);
+            border: 1px solid rgba(255, 100, 100, 0.8);
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button onclick="stop()">stop</button>
+    <button onclick="refresh()">refresh</button>
+
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-storage.js"></script>
+
+    <script>
+        var firebaseConfig = {
+            apiKey: "AIzaSyDQEYOnu3gihH6muH6N25E_iL1T_7bI-eg",
+            authDomain: "cbsh-sunday-festival.firebaseapp.com",
+            projectId: "cbsh-sunday-festival",
+            storageBucket: "cbsh-sunday-festival.appspot.com",
+            messagingSenderId: "1061184449998",
+            appId: "1:1061184449998:web:7bfe0acc6d401c5aa60f9f",
+            measurementId: "G-KQK9DX3PBL"
+        };
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+    </script>
+
+    <script>
+        const user = [];
+
+        for (var i = 1; i <= 9; i++) {
+            user.push('417s330' + String(i));
+        }
+        for (var i = 10; i <= 54; i++) {
+            user.push('417s33' + String(i));
+        }
+        for (var i = 1; i <= 9; i++) {
+            user.push('417s320' + String(i));
+        }
+        for (var i = 10; i <= 53; i++) {
+            user.push('417s32' + String(i));
+        }
+        for (var i = 1; i <= 9; i++) {
+            user.push('417s310' + String(i));
+        }
+        for (var i = 10; i <= 31; i++) {
+            user.push('417s31' + String(i));
+        }
+
+        const database = firebase.database();
+        const stopRef = database.ref("end");
+
+        function stop() {
+            stopRef.set({
+                stop: 1
+            });
+        }
+
+        function refresh() {
+            stopRef.set({
+                stop: 0
+            });
+
+            for (var i = 0; i < user.length; i++) {
+                var refreshRef = database.ref(user[i])
+                refreshRef.set({
+                    vote: 0
+                });
+            }
+
+        }
+    </script>
+
+</body>
+
+</html>

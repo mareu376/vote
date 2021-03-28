@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="kr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>투표</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <div class="circle" id="circle1"></div>
+    <div class="circle" id="circle2"></div>
+    <div class="circle" id="circle3"></div>
+    <div class="circle" id="circle4"></div>
+    <div class="circle" id="circle5"></div>
+    <div class="circle" id="circle6"></div>
+    <div class="circle" id="circle7"></div>
+    <div class="circle" id="circle8"></div>
+
+    <div id="login_div" class="main-div">
+        <h1>CBSH</h1>
+        <h1>Sunday</h1>
+        <h1>Festival</h1>
+        <br>
+        <input type="email" placeholder="ex) 417s-3401@cberi.go.kr" id="email_field"/>
+        <input onkeyup="enterkey()" type="password" placeholder="ex) 417s3401" id="password_field"/>
+
+        <button class="round" onclick="login()">Login to Account</button>
+    </div>
+
+    <div id="user_div" class="loggedin-div">
+        <button id="out1" onclick="cancel()">Cancel VOTE</button>
+        <div id="vote_btn">
+            <button id="round" onclick="vote()">V O T E</button>
+        </div>
+        <div id="done">
+            <button id="doneround" disabled="disabled">D O N E</button>
+        </div>
+        <button id="out2" onclick="logout()">Logout</button>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-storage.js"></script>
+
+    <script>
+        var firebaseConfig = {
+            apiKey: "AIzaSyDQEYOnu3gihH6muH6N25E_iL1T_7bI-eg",
+            authDomain: "cbsh-sunday-festival.firebaseapp.com",
+            projectId: "cbsh-sunday-festival",
+            storageBucket: "cbsh-sunday-festival.appspot.com",
+            messagingSenderId: "1061184449998",
+            appId: "1:1061184449998:web:7bfe0acc6d401c5aa60f9f",
+            measurementId: "G-KQK9DX3PBL"
+        };
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+    </script>
+
+    <script src="index.js"></script>
+
+</body>
+
+</html>
