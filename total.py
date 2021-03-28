@@ -3,9 +3,9 @@ from firebase_admin import credentials
 from firebase_admin import db
 
 if not firebase_admin._apps :
-  cred = credentials.Certificate('cbsh-sunday-festival-firebase-adminsdk-rx08m-1beefa251e.json')
+  cred = credentials.Certificate('********************************************************')
   firebase_admin.initialize_app(cred,{
-      'databaseURL' : 'https://cbsh-sunday-festival-default-rtdb.firebaseio.com/'
+      'databaseURL' : '***********************************************************'
   })
 
 user = []
